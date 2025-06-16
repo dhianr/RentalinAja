@@ -1,0 +1,28 @@
+runtime: python39
+
+handlers:
+  # Tangani file statis (CSS, JS, IMG)
+  - url: /css
+    static_dir: css
+
+  - url: /js
+    static_dir: js
+
+  - url: /images
+    static_dir: images
+
+  - url: /admin/assets
+    static_dir: admin/assets
+
+  - url: /admin/css
+    static_dir: admin/css
+
+  # Tangani semua file HTML di root folder
+  - url: /(.*\.html)
+    static_files: \1
+    upload: (.*\.html)
+
+  # Default: arahkan ke index.html
+  - url: /
+    static_files: index.html
+    upload: index.html
